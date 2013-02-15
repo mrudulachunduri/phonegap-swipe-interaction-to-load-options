@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <title>Swipe Interaction</title>	
+     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" /> 
+    <script src="js/jquery-1.7.2.min.js"></script>		
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>	
+	<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>	
+	<script src="js/jquery.animate-enhanced.js"></script>
+	<script src="js/jquery.swipe.optionsmenu.js"></script>
+	<script>
+		$("#swipeInteractions").live("pagebeforeshow",function(){
+			
+				$("#optionsSwipeList").attr("style","height:"+window.innerHeight+"px");
+				$('.swipe').swipe({swipeRight: function(){startSwipeAnimation("0px");}});
+			
+			});
+			
+			function startSwipeAnimation(leftPixels)
+			{				
+				$('#optionsSwipeList').animate({					
+						left: leftPixels,					
+					  }, 300, function() {
+						//alert("ola");
+					  });
+			}
+			
+		function fnOnPageTouchStart()
+		{	
+			if($("#optionsSwipeList").position().left == 0)
+				startSwipeAnimation("-300px");
+		}	
+	</script>
+	<style>
+	 #optionsSwipeList{	 
+	 position:fixed;
+	 left:-300px;
+	 top:0px;	 
+	 z-index:1000;
+	 overflow:auto;
+	 -webkit-overflow-scrolling: touch;
+	 background:black;
+	 width:300px;
+	 
+	 }
+	 </style>
+	 
+</head>
+
+<body width="100%">
+
+<div data-role="page" height="100%" width="100%" id="swipeInteractions" class="swipe" ontouchstart='fnOnPageTouchStart();'>
+
+<div data-role="header" data-theme="b">
+		<h1>Swipe</h1>		
+</div>
+	<div data-role="content">	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit blandit aliquet. Ut nec urna a diam hendrerit bibendum a sed libero. Vestibulum pharetra, leo at elementum convallis, tellus neque scelerisque est, id pretium nisi lorem non mauris. Morbi et mauris vel lorem imperdiet fringilla. Vestibulum luctus arcu vel orci auctor a semper sapien lacinia. Etiam bibendum lacus sed erat lacinia sit amet posuere leo venenatis. Phasellus nec est nec leo sagittis semper. Donec sit amet justo urna, ut interdum magna. Curabitur ut tincidunt ipsum. Nam vitae massa odio. Quisque congue sollicitudin nunc, non pulvinar velit volutpat eget.
+
+Duis ut est turpis, ut tristique ante. Maecenas elementum sapien id massa molestie eu ultricies sapien placerat. Morbi purus dui, auctor rutrum elementum eget, elementum a dui. Suspendisse potenti. Sed rutrum purus a est lacinia sit amet tristique libero facilisis. Proin vel luctus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla enim arcu, pharetra non ultricies non, consectetur sit amet velit. Cras dui ipsum, bibendum ut semper vel, tristique vitae lectus. Suspendisse sed tellus sit amet justo scelerisque imperdiet eget in eros. Duis quis dignissim orci. Sed vehicula, urna iaculis blandit fringilla, leo tellus placerat lectus, nec egestas velit lectus at nulla.
+
+Maecenas molestie erat a mi dictum dapibus. Donec scelerisque iaculis accumsan. Sed eu porttitor augue. In bibendum, tellus quis facilisis fermentum, nunc nisl cursus justo, vel fermentum nunc tellus quis est. Quisque dictum vestibulum enim, vitae dignissim lacus bibendum id. Morbi non accumsan metus. Aliquam eleifend tincidunt arcu, tincidunt consectetur ipsum imperdiet sed. Aenean aliquet eleifend mauris vel tristique. Nullam non risus diam. Nullam semper enim ac mi commodo lobortis. Maecenas et magna mauris. Nam tortor sem, volutpat a aliquam a, lacinia sit amet dolor. Maecenas eros tortor, sodales vel scelerisque sit amet, egestas eget tortor. Sed ornare quam quis nibh congue id aliquet leo venenatis. Nulla eget metus lorem, eu mattis quam.
+
+Aliquam pharetra semper tempus. Donec euismod viverra eros, eget vulputate turpis tincidunt id. Nam laoreet, nunc a aliquet eleifend, nisi ligula pretium neque, cursus bibendum orci massa et mauris. Proin in velit vestibulum mi faucibus varius. Fusce placerat placerat justo, id vulputate nibh pellentesque at. Maecenas sollicitudin dictum leo sed tincidunt. Sed eu nisl justo. Aliquam vel lectus quis tellus tempus eleifend quis consectetur mauris. Nam vitae lectus leo, quis molestie sapien. Quisque cursus mauris sed nisi lobortis laoreet. Morbi rutrum ligula a tellus dapibus bibendum. Morbi pharetra, purus vel lobortis vehicula, velit sem aliquet est, a rutrum mi nulla sed nisl. In augue urna, molestie vitae tristique ac, placerat vitae felis. Integer at mauris elit. Cras bibendum dignissim tortor, ut pulvinar massa porta dictum. Donec eleifend, enim ac fermentum laoreet, justo augue congue nulla, eget interdum massa magna at nibh.
+
+Aenean adipiscing varius nunc vel congue. Cras quis ante nisl. Donec et orci lorem. Nunc gravida dolor nec turpis consectetur tincidunt. Nulla et semper eros. Vestibulum et cursus nunc. Nullam non lacus nisi. Integer dapibus suscipit mi quis semper. Integer eleifend augue nec nisi vehicula at tempor mi tristique. Phasellus aliquam diam et ante imperdiet viverra.
+
+	</div>
+	<div id="optionsSwipeList">
+	<ul data-role="listview">
+		<li>option 1</li>
+		<li>option 2</li>
+		<li>option 3</li>
+		<li>option 4</li>
+		<li>option 5</li>
+		<li>option 6</li>
+		<li>option 7</li>
+		<li>option 8</li>
+		<li>option 9</li>
+		<li>option 10</li>
+		<li>option 11</li>
+		<li>option 12</li>
+		<li>option 13</li>
+		<li>option 14</li>
+		<li>option 15</li>
+		<li>option 16</li>
+	</ul>
+	</div>
+</div>
+</body>
+</html>
